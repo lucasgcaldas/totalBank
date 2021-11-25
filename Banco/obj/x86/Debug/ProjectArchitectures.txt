@@ -1,0 +1,1 @@
+D:\ESTAGIO\TotalCross\C#\Banco\Banco\Banco.csproj;x86
