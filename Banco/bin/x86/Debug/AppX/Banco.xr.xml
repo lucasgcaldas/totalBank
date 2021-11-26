@@ -54,6 +54,7 @@
       <RootProperty Name="Source" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Name" />
       <RootProperty Name="Content" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
@@ -68,10 +69,10 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="FocusVisualPrimaryBrush" />
       <RootProperty Name="FocusVisualSecondaryBrush" />
-      <RootProperty Name="Name" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />

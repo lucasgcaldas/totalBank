@@ -1,5 +1,9 @@
 WinMetadata\Windows.winmd
+Assets\back.png
+Assets\bankIcon.png
+Assets\goout.png
 Assets\LockScreenLogo.scale-200.png
+Assets\notification.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square44x44Logo.scale-200.png
@@ -8,9 +12,9 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 Banco.xr.xml
-CadastroPage.xbf
-ConfTransPage.xbf
-HomePage.xbf
 MainPage.xbf
-TransPouPage.xbf
+Pages\CadastroPage.xbf
+Pages\ConfTransPage.xbf
+Pages\HomePage.xbf
+Pages\TransPouPage.xbf
 Properties\Default.rd.xml

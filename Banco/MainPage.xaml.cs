@@ -1,18 +1,9 @@
 ﻿using App1.Pages;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x416
 
@@ -23,6 +14,12 @@ namespace Banco
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        MySqlConnection conexao;
+        MySqlCommand comando;
+        MySqlDataAdapter da;
+        MySqlDataReader dr;
+        string strSQL;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -30,8 +27,36 @@ namespace Banco
 
         void OpenHome(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                conexao = new MySqlConnection("Server=localhost;Database=totalBank;Uid=root;Pwd=admin;");
 
-            Frame.Navigate(typeof(HomePage));
+                strSQL = "SELECT * FROM tb_usuario WHERE agencia = @AGENCIA AND conta_numero = @NUMCONTA";
+
+                comando = new MySqlCommand(strSQL, conexao);
+                comando.Parameters.AddWithValue("@AGENCIA", ageBox.Text);
+                comando.Parameters.AddWithValue("@NUMCONTA", contBox.Text);
+
+                conexao.Open();
+
+                dr = comando.ExecuteReader();
+
+                if(dr.Read())
+                {
+                    Frame.Navigate(typeof(HomePage));
+                }
+
+            }
+            catch (Exception E)
+            {
+                throw E;
+            }
+            finally
+            {
+                conexao.Close();
+                conexao = null;
+                comando = null;
+            }
         }
 
         void OpenCadastro(object sender, RoutedEventArgs e)
